@@ -1,0 +1,19 @@
+Certainly! To create fresh VMs for your Active Directory Lightweight Directory Services (AD LDS) servers (LDS1 and LDS2), you can use a tool like Packer to automate the process. Packer allows you to create consistent and repeatable VM images. Below, I’ll provide an example of how you can use Packer to build your AD LDS servers:
+
+Install Packer: First, make sure you have Packer installed on your machine. You can download it from the official website: Packer Downloads.
+Create a Packer Template: Create a JSON file (let’s call it adlds-template.json) with the following content:
+
+JSON file added to structure
+
+
+AI-generated code. Review and use carefully. More info on FAQ.
+Create PowerShell Scripts: Create a PowerShell script (e.g., install-ldsserver.ps1) that installs and configures AD LDS on the VMs. Customize this script based on your requirements.
+Run Packer: Open a command prompt and navigate to the directory where your Packer template (adlds-template.json) is located. Run the following command to build the VMs:
+packer build adlds-template.json
+Packer will create two VMs (LDS1 and LDS2) based on the specified ISO image.
+Customize Further: Depending on your specific needs, you can add more provisioning steps to the PowerShell script. For example, you might want to configure AD LDS instances, set up partitions, or create custom users.
+Remember to replace placeholders like path/to/windows-server-2022.iso, your_iso_checksum, and YourAdminPassword with actual values. Also, adjust the script to install and configure AD LDS according to your environment.
+
+Once the Packer build completes, you’ll have fresh VMs ready for your AD LDS servers. 🚀
+
+For more details on Packer and its configuration options, refer to the official documentation: Packer Documentation.

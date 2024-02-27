@@ -1,0 +1,38 @@
+{
+ "builders": [
+   {
+     "type": "hyperv-iso",
+     "iso_url": "path/to/windows-server-2022.iso",
+     "iso_checksum": "your_iso_checksum",
+     "iso_checksum_type": "sha256",
+     "vm_name": "LDS1",
+     "output_directory": "output/LDS1",
+     "communicator": "winrm",
+     "winrm_username": "Administrator",
+     "winrm_password": "YourAdminPassword",
+     "winrm_timeout": "10m",
+     "shutdown_command": "shutdown /s /t 10 /f"
+   },
+   {
+     "type": "hyperv-iso",
+     "iso_url": "path/to/windows-server-2022.iso",
+     "iso_checksum": "your_iso_checksum",
+     "iso_checksum_type": "sha256",
+     "vm_name": "LDS2",
+     "output_directory": "output/LDS2",
+     "communicator": "winrm",
+     "winrm_username": "Administrator",
+     "winrm_password": "YourAdminPassword",
+     "winrm_timeout": "10m",
+     "shutdown_command": "shutdown /s /t 10 /f"
+   }
+ ],
+ "provisioners": [
+   {
+     "type": "powershell",
+     "scripts": [
+       "scripts/install-ldsserver.ps1"
+     ]
+   }
+ ]
+}
